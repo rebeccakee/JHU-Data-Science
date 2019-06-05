@@ -1,2 +1,2 @@
-# JHU-Data-Science
+# JHU Data Science
 Projects for JHU's coursera Data Science Specialization
