@@ -17,6 +17,3 @@ pollutantmean <- function(directory, pollutant, id = 1:323) {
   mean <- mean(data[ ,pollutant], na.rm = TRUE)
   return(mean)
 }
-
-pollutantmean("/Users/RebeccaKee/Desktop/coursera data science/02_R Programming/Data/specdata", "nitrate", 23)
-
