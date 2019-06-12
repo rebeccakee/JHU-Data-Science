@@ -44,8 +44,6 @@ mean(subset$Solar.R)
 
 data.June <- data[data$Month == 6, ]
 
-data.June
-
 mean(data.June$Temp)
 
 #Question 20. What was the maximum ozone value in the month of May (i.e. Month is equal to 5)?
