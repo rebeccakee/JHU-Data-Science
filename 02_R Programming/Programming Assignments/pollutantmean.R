@@ -8,7 +8,7 @@
 #'returns the mean of the pollutant across all of the monitors, 
 #'ignoring any missing values coded as NA. 
 
-pollutantmean <- function(directory, pollutant, id = 1:323) {
+pollutantmean <- function(directory, pollutant, id = 1:332) {
   files <- list.files(directory, full.names = TRUE)
   data <- data.frame()
   for (i in id) {

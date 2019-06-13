@@ -3,12 +3,14 @@
 #The function should return a data frame where the first column is the 
 #name of the file and the second column is the number of complete cases. 
 
-complete <- function(directory, id = 1:323) {
+complete <- function(directory, id = 1:332) {
   files <- list.files(directory, full.names = TRUE)
-  data <- data.frame()
+  result <- data.frame()
   for (i in id) {
-    totalobs <- sum(complete.cases(read.csv(files[i], header = TRUE)))
-    data <- rbind(data, data.frame(i, totalobs))
+    data <- read.csv(files[i], header = TRUE)
+    data <- na.omit(data)
+    nobs <- nrow(data)
+    result <- rbind(result, data.frame(i, nobs))
   } 
-return(data)
+return(result)
 }
