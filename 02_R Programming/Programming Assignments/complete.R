@@ -12,6 +12,3 @@ complete <- function(directory, id = 1:323) {
   } 
 return(data)
 }
-
-complete("/Users/RebeccaKee/Desktop/coursera data science/02_R Programming/Data/specdata", 30:25)
-
