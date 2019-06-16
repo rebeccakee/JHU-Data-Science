@@ -47,4 +47,3 @@ best <- function(state, outcome) {
   }
   return(hospitals)
 }
-best("AL", "heart attack")
