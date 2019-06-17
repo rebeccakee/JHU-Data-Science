@@ -20,30 +20,30 @@ best <- function(state, outcome) {
                          as.numeric(data[, 17]), #30-day mortality, heart failure
                          as.numeric(data[, 23]), #30-day mortality, pneumonia
                          stringsAsFactors = FALSE)
-  colnames(df) <- c("Hospital", "State", "Heart attack", "Heart failure", "Pneumonia")
+  colnames(df) <- c("hospital", "state", "heart attack", "heart failure", "pneumonia")
   
   ## Check that state and outcome are valid
-  if (!state %in% df[, "State"]) {
+  if (!is.null(state) && !state %in% df[, "State"]) {
     stop("invalid state")
-  } 
-  else if (!outcome %in% c("heart attack", "heart failure", "pneumonia")) {
+  }
+  if (!is.null(outcome) && !outcome %in% df[,3:5]) {
     stop("invalid outcome")
   } 
   ## Return hospital name in that state with lowest 30-day death rate
-  else {
-    subset <- subset(df, state == df$State)
-    if (outcome == "heart attack") {
-      col <- 3
-    } 
-    else if (outcome == "heart failure") {
-      col <- 4
-    } 
-    else if (outcome == "pneumonia") {
-      col <- 5
-    }
-    min <- min(subset[, col], na.rm = TRUE)
-    min_row <- which(as.numeric(subset[, col]) == as.numeric(min))
-    hospitals <- sort(subset[min_row,"Hospital"])
+  subset <- subset(df, state == df$State)
+  if (outcome == df[,3]) { #heart attack
+    col <- 3
+  } 
+  else if (outcome == df[,4]) { #heart failure
+    col <- 4
+  } 
+  else if (outcome == df[,5]) { #pneumonia
+    col <- 5
   }
+  min <- min(subset[, col], na.rm = TRUE)
+  min_row <- which(as.numeric(subset[, col]) == as.numeric(min))
+  hospitals <- sort(subset[min_row,"Hospital"])
   return(hospitals)
 }
+
+best("TX", "heart attack")
