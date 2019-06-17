@@ -13,36 +13,38 @@
 #message “invalid outcome”.
 best <- function(state, outcome) {
   ## Read outcome data
-  data <- read.csv("/Users/RebeccaKee/Desktop/coursera data science/02_R Programming/Data/ProgAssignment3_data/outcome-of-care-measures.csv", colClasses = "character")
+  data <- read.csv("/Users/RebeccaKee/Desktop/coursera_data_science/02_R_Programming/Data/ProgAssignment3_data/outcome-of-care-measures.csv", colClasses = "character")
   df <- cbind.data.frame(data[, 2], #Hospital name
                          data[, 7], #State
                          as.numeric(data[, 11]), #30-day mortality, heart attack
                          as.numeric(data[, 17]), #30-day mortality, heart failure
                          as.numeric(data[, 23]), #30-day mortality, pneumonia
                          stringsAsFactors = FALSE)
-  colnames(df) <- c("hospital", "state", "heart attack", "heart failure", "pneumonia")
+  colnames(df) <- c("Hospital", "State", "Heart attack", "Heart failure", "Pneumonia")
   
   ## Check that state and outcome are valid
-  if (!is.null(state) && !state %in% df[, "State"]) {
+  if (!state %in% df[, "State"]) {
     stop("invalid state")
-  }
-  if (!is.null(outcome) && !outcome %in% df[,3:5]) {
+  } 
+  else if (!outcome %in% c("heart attack", "heart failure", "pneumonia")) {
     stop("invalid outcome")
   } 
   ## Return hospital name in that state with lowest 30-day death rate
-  subset <- subset(df, state == df$State)
-  if (outcome == df[,3]) { #heart attack
-    col <- 3
-  } 
-  else if (outcome == df[,4]) { #heart failure
-    col <- 4
-  } 
-  else if (outcome == df[,5]) { #pneumonia
-    col <- 5
+  else {
+    subset <- subset(df, state == df$State)
+    if (outcome == "heart attack") {
+      col <- 3
+    } 
+    else if (outcome == "heart failure") {
+      col <- 4
+    } 
+    else if (outcome == "pneumonia") {
+      col <- 5
+    }
+    min <- min(subset[, col], na.rm = TRUE)
+    min_row <- which(as.numeric(subset[, col]) == as.numeric(min))
+    hospitals <- sort(subset[min_row,"Hospital"])
   }
-  min <- min(subset[, col], na.rm = TRUE)
-  min_row <- which(as.numeric(subset[, col]) == as.numeric(min))
-  hospitals <- sort(subset[min_row,"Hospital"])
   return(hospitals)
 }
 
