@@ -14,16 +14,16 @@
 best <- function(state, outcome) {
   ## Read outcome data
   data <- read.csv("/Users/RebeccaKee/Desktop/coursera_data_science/02_R_Programming/Data/ProgAssignment3_data/outcome-of-care-measures.csv", colClasses = "character")
-  df <- cbind.data.frame(data[, 2], #Hospital name
+  outcomes.df <- cbind.data.frame(data[, 2], #Hospital name
                          data[, 7], #State
                          as.numeric(data[, 11]), #30-day mortality, heart attack
                          as.numeric(data[, 17]), #30-day mortality, heart failure
                          as.numeric(data[, 23]), #30-day mortality, pneumonia
                          stringsAsFactors = FALSE)
-  colnames(df) <- c("Hospital", "State", "Heart attack", "Heart failure", "Pneumonia")
+  colnames(outcomes.df) <- c("Hospital", "State", "Heart attack", "Heart failure", "Pneumonia")
   
   ## Check that state and outcome are valid
-  if (!state %in% df[, "State"]) {
+  if (!state %in% outcomes.df[, "State"]) {
     stop("invalid state")
   } 
   else if (!outcome %in% c("heart attack", "heart failure", "pneumonia")) {
@@ -31,7 +31,7 @@ best <- function(state, outcome) {
   } 
   ## Return hospital name in that state with lowest 30-day death rate
   else {
-    subset <- subset(df, state == df$State)
+    state.subset <- subset(outcomes.df, state == df$State) #Subset to state of interest only
     if (outcome == "heart attack") {
       col <- 3
     } 
@@ -41,9 +41,9 @@ best <- function(state, outcome) {
     else if (outcome == "pneumonia") {
       col <- 5
     }
-    min <- min(subset[, col], na.rm = TRUE)
-    min_row <- which(as.numeric(subset[, col]) == as.numeric(min))
-    hospitals <- sort(subset[min_row,"Hospital"])
+    min <- min(state.subset[, col], na.rm = TRUE)
+    min_row <- which(as.numeric(state.subset[, col]) == as.numeric(min))
+    hospitals <- sort(state.subset[min_row,"Hospital"])
   }
   return(hospitals)
 }
