@@ -31,7 +31,7 @@ rankhospital <- function(state, outcome, num = "best") {
     stop("invalid outcome")
   } 
   ## Return hospital name in that state with the given rank for 30-day mortality rate
-  state.subset <- subset(outcomes.df, state == df$State) #Subset to state of interest only
+  state.subset <- subset(outcomes.df, state == outcomes.df$State) #Subset to state of interest only
   if (outcome == "heart attack") {
       col <- 3
   } 

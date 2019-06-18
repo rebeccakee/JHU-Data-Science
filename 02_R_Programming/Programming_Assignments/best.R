@@ -31,7 +31,7 @@ best <- function(state, outcome) {
   } 
   ## Return hospital name in that state with lowest 30-day death rate
   else {
-    state.subset <- subset(outcomes.df, state == df$State) #Subset to state of interest only
+    state.subset <- subset(outcomes.df, state == outcomes.df$State) #Subset to state of interest only
     if (outcome == "heart attack") {
       col <- 3
     } 
