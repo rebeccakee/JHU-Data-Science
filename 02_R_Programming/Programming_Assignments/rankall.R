@@ -30,7 +30,8 @@ rankall <- function(outcome, num = "best") {
   if (!outcome %in% c("heart attack", "heart failure", "pneumonia")) {
     stop("invalid outcome")
   } 
-  ## For each state, find the hospital of the given rank
+  
+  ### Assign column numbers for each outcome
   if (outcome == "heart attack") {
     col <- 3
   } 
@@ -40,24 +41,23 @@ rankall <- function(outcome, num = "best") {
   else if (outcome == "pneumonia") {
     col <- 5
   }
-  hosp.order <- outcomes.df[order(outcomes.df[, col], outcomes.df[, "Hospital"], decreasing = FALSE), ] #Order by outcome, then by hospital name to break ties
-  hosp.order <- hosp.order[(!is.na(hosp.order[, col])), ] #Remove rows with NA  
+  
+  ## For each state, find the hospital of the given rank
+  hosp.order <- outcomes.df[order(outcomes.df[, col], outcomes.df$Hospital, decreasing = FALSE), ] #Order by outcome, then by hospital name to break ties
+  hosp.order <- hosp.order[!is.na(hosp.order[, col]), ] #Remove rows with NA  
   hosp.bystate <- split(hosp.order, hosp.order$State) #Split hospitals by state
-  hosp.names <- data.frame(0,2) #Create empty data frame to store hospitals by state
-  lapply(hosp.bystate, function(each.state, num) {
+  hosp.names <- do.call(rbind, lapply(hosp.bystate, function(each.state) #Loop over list of hospitals by state, retrieve hospital in rank of interest for each state
     if (num == "best") {
-      rbind(hosp.names, each.state[1,1:2])
-    }
+      each.state[1,1]
+      } 
     else if (num == "worst") {
-      rbind(hosp.names, each.state[nrow(each.state),1:2])
-    }
+      each.state[nrow(each.state),1]
+      } 
     else {
-      rbind(hosp.names, each.state[num,1:2])
-    }
-  }, num)
+      each.state[num,1]
+      }))
   ## Return a data frame with the hospital names and the (abbreviated) state name
-  colnames(hosp.names) <- c("hospital", "state")
+  hosp.names <- as.data.frame(cbind(hosp.names, (names(hosp.bystate)))) #Bind state name column
+  colnames(hosp.names) <- c("hospital", "state") #Rename columns
   return(hosp.names)
 }
-
-head(rankall("heart attack", 20), 10)
