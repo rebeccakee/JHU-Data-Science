@@ -6,6 +6,8 @@
 #If no monitors meet the threshold requirement, 
 #then the function should return a numeric vector of length 0. 
 
+#NOTE: use RNGkind(sample.kind = "Rounding") before setting seed to produce correct output
+
 corr <- function(directory, threshold = 0) {
   files <- list.files(directory, full.names = TRUE)
   result <- vector(mode = "numeric", length = 0)
@@ -22,3 +24,4 @@ corr <- function(directory, threshold = 0) {
   
   return(result)
 }
+   

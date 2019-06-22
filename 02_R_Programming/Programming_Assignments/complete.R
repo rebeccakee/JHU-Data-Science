@@ -3,6 +3,8 @@
 #The function should return a data frame where the first column is the 
 #name of the file and the second column is the number of complete cases. 
 
+#NOTE: use RNGkind(sample.kind = "Rounding") before setting seed to produce correct output
+
 complete <- function(directory, id = 1:332) {
   files <- list.files(directory, full.names = TRUE)
   result <- data.frame()
