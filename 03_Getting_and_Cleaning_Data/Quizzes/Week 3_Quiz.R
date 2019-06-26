@@ -42,9 +42,10 @@ GDP.fileURL = "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv"
 edu.fileURL = "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv"
 download.file(GDP.fileURL, destfile = "/Users/RebeccaKee/Desktop/coursera_data_science/03_Getting_and_Cleaning_Data/Quizzes/Week_3_Quiz_Q3_GDPdata.csv", method = "curl")
 download.file(edu.fileURL, destfile = "/Users/RebeccaKee/Desktop/coursera_data_science/03_Getting_and_Cleaning_Data/Quizzes/Week_3_Quiz_Q3_edudata.csv", method = "curl")
-GDP <- read.csv("/Users/RebeccaKee/Desktop/coursera_data_science/03_Getting_and_Cleaning_Data/Quizzes/Week_3_Quiz_Q3_GDPdata.csv", header = TRUE, skip = 4, nrows = 231, col.names = c("CountryCode", "GDPRank", "X.2", "Long.Name", "PopSize", "X.5", "X.6", "X.7", "X.8", "X.9"))
+GDP <- read.csv("/Users/RebeccaKee/Desktop/coursera_data_science/03_Getting_and_Cleaning_Data/Quizzes/Week_3_Quiz_Q3_GDPdata.csv", header = TRUE, skip = 4, nrows = 190, col.names = c("CountryCode", "GDPRank", "X.2", "countryNames", "GDPmillions", "X.5", "X.6", "X.7", "X.8", "X.9"))
+GDP <- subset(GDP[,1:5]) #Drop empty columns
 edu <- read.csv("/Users/RebeccaKee/Desktop/coursera_data_science/03_Getting_and_Cleaning_Data/Quizzes/Week_3_Quiz_Q3_edudata.csv", header = TRUE)
-merged.GDP.edu <- merge(GDP, edu, by.x = "CountryCode", by.y = "CountryCode", all = TRUE)
+merged.GDP.edu <- merge(GDP, edu, by.x = "CountryCode", by.y = "CountryCode", all = FALSE)
 merged.GDP.edu <- arrange(merged.GDP.edu, desc(GDPRank))
 merged.GDP.edu[13,"Long.Name.x"]
 
