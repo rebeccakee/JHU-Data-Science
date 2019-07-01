@@ -9,11 +9,12 @@ description is available at this
 where the data was obtained:
 
 This directory contains the following files:  
-\* README.md, the current file, which describes the purpose of this
+\* `README.md`, the current file, which describes the purpose of this
 project, the contents of this directory, and how they are connected.  
-\* CodeBook.md, which describes in detail the dataset, its variables,
+\* `CodeBook.md`, which describes in detail the dataset, its variables,
 and the transformations applied to it to produce a tidy dataset that is
 analysis-ready.  
-\* run\_analysis.R, the R script that was used to create the tidy data
+\* `run_analysis.R`, the R script that was used to create the tidy data
 set.  
-\* tidy\_data.csv, which is the tidy dataset produced from the R script.
+\* `tidy_data.csv`, which is the tidy dataset produced from the R
+script.
