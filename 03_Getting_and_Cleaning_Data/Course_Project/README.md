@@ -18,5 +18,5 @@ This directory contains the following files:
     is analysis-ready.  
 -   `run_analysis.R`, the R script that was used to create the tidy data
     set.  
--   `tidy_data.csv`, which is the tidy dataset produced from the R
+-   `tidy_data.txt`, which is the tidy dataset produced from the R
     script.

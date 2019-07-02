@@ -3,7 +3,7 @@ CodeBook for *Getting and Cleaning Data Course Project*
 
 This codebook describes in detail the dataset used in this project, its
 variables, as well as the transformations applied to produce a tidy
-dataset, titled `tidy_data.csv` located in the same directory.
+dataset, titled `tidy_data.txt` located in the same directory.
 
 ### Background information on the original dataset
 
@@ -37,7 +37,7 @@ Galaxy S smartphone. Specifically, the data is described as follows:
 ### Tidy data
 
 The original dataset was cleaned to produce a tidy dataset,
-`tidy_data.csv`.  
+`tidy_data.txt`.  
 It contains a header row with variable names, while the following rows
 contain the values of these variables. Each row contains the mean of 79
 signal measurements, for each subject and activity. Variables are
@@ -241,7 +241,7 @@ is downloaded and unzipped if it does not exist.
 
 6.  The mean of each variable is calculated for each subject and
     activity, which is written to a new tidy dataset, called
-    `tidy_data.csv`.
+    `tidy_data.txt`.
 
 The tidy dataset was created using R version 3.6.0 (2019-04-26) on MacOS
 Version 10.14.5. `dplyr` package (Version 0.8.1) is required.
