@@ -1,8 +1,6 @@
 CodeBook for *Getting and Cleaning Data Course Project*
 -------------------------------------------------------
 
-------------------------------------------------------------------------
-
 This codebook describes in detail the dataset used in this project, its
 variables, as well as the transformations applied to produce a tidy
 dataset, titled `tidy_data.csv` located in the same directory.
@@ -13,17 +11,18 @@ The raw dataset used in this project was obtained from the [Human
 Activity Recognition Using Smartphones Data
 Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones),
 which contains data collected from the accelerometers from the Samsung
-Galaxy S smartphone. Specifically, the data is described as follows:  
-&gt; The experiments have been carried out with a group of 30 volunteers
-within an age bracket of 19-48 years. Each person performed six
-activities (WALKING, WALKING\_UPSTAIRS, WALKING\_DOWNSTAIRS, SITTING,
-STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the
-waist. Using its embedded accelerometer and gyroscope, we captured
-3-axial linear acceleration and 3-axial angular velocity at a constant
-rate of 50Hz. The experiments have been video-recorded to label the data
-manually. The obtained dataset has been randomly partitioned into two
-sets, where 70% of the volunteers was selected for generating the
-training data and 30% the test data.
+Galaxy S smartphone. Specifically, the data is described as follows:
+
+> The experiments have been carried out with a group of 30 volunteers
+> within an age bracket of 19-48 years. Each person performed six
+> activities (WALKING, WALKING\_UPSTAIRS, WALKING\_DOWNSTAIRS, SITTING,
+> STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the
+> waist. Using its embedded accelerometer and gyroscope, we captured
+> 3-axial linear acceleration and 3-axial angular velocity at a constant
+> rate of 50Hz. The experiments have been video-recorded to label the
+> data manually. The obtained dataset has been randomly partitioned into
+> two sets, where 70% of the volunteers was selected for generating the
+> training data and 30% the test data.
 
 > The sensor signals (accelerometer and gyroscope) were pre-processed by
 > applying noise filters and then sampled in fixed-width sliding windows
@@ -101,41 +100,42 @@ Jerk signals were a derivation of the acceleration in time
 ##### Mean and standard deviation of body angular velocity jerk in X, Y and Z dimensions
 
 Jerk signals were a derivation of the angular velocity in time  
-\* `timeBodyGyroscopeJerkMeanX` \* `timeBodyGyroscopeJerkMeanY` \*
-`timeBodyGyroscopeJerkMeanZ` \*
-`timeBodyGyroscopeJerkStandardDeviationX`  
+\* `timeBodyGyroscopeJerkMeanX`  
+\* `timeBodyGyroscopeJerkMeanY`  
+\* `timeBodyGyroscopeJerkMeanZ`  
+\* `timeBodyGyroscopeJerkStandardDeviationX`  
 \* `timeBodyGyroscopeJerkStandardDeviationY`  
 \* `timeBodyGyroscopeJerkStandardDeviationZ`
 
 ##### Mean and standard deviation of body acceleration magnitude
 
 The magnitude was calculated using the Euclidean norm  
-\* `timeBodyAccelerometerMagnitudeMean` \*
-`timeBodyAccelerometerMagnitudeStandardDeviation`
+\* `timeBodyAccelerometerMagnitudeMean`  
+\* `timeBodyAccelerometerMagnitudeStandardDeviation`
 
 ##### Mean and standard deviation of gravity acceleration magnitude
 
 The magnitude was calculated using the Euclidean norm  
-\* `timeGravityAccelerometerMagnitudeMean` \*
-`timeGravityAccelerometerMagnitudeStandardDeviation`
+\* `timeGravityAccelerometerMagnitudeMean`  
+\* `timeGravityAccelerometerMagnitudeStandardDeviation`
 
 ##### Mean and standard deviation of body acceleration jerk magnitude
 
 The magnitude was calculated using the Euclidean norm  
-\* `timeBodyAccelerometerJerkMagnitudeMean` \*
-`timeBodyAccelerometerJerkMagnitudeStandardDeviation`
+\* `timeBodyAccelerometerJerkMagnitudeMean`  
+\* `timeBodyAccelerometerJerkMagnitudeStandardDeviation`
 
 ##### Mean and standard deviation of body angular velocity magnitude
 
 The magnitude was calculated using the Euclidean norm  
-\* `timeBodyGyroscopeMagnitudeMean` \*
-`timeBodyGyroscopeMagnitudeStandardDeviation`
+\* `timeBodyGyroscopeMagnitudeMean`  
+\* `timeBodyGyroscopeMagnitudeStandardDeviation`
 
 ##### Mean and standard deviation of body angular velocity jerk magnitude
 
 The magnitude was calculated using the Euclidean norm  
-\* `timeBodyGyroscopeJerkMagnitudeMean` \*
-`timeBodyGyroscopeJerkMagnitudeStandardDeviation`
+\* `timeBodyGyroscopeJerkMagnitudeMean`  
+\* `timeBodyGyroscopeJerkMagnitudeStandardDeviation`
 
 #### Frequency domain variables
 
@@ -145,71 +145,71 @@ of numeric class.
 
 ##### Mean and stndard deviation of body acceleration in X, Y and Z dimensions
 
--   `frequencyBodyAccelerometerMeanX`
--   `frequencyBodyAccelerometerMeanY`
--   `frequencyBodyAccelerometerMeanZ`
--   `frequencyBodyAccelerometerStandardDeviationX`
--   `frequencyBodyAccelerometerStandardDeviationY`
+-   `frequencyBodyAccelerometerMeanX`  
+-   `frequencyBodyAccelerometerMeanY`  
+-   `frequencyBodyAccelerometerMeanZ`  
+-   `frequencyBodyAccelerometerStandardDeviationX`  
+-   `frequencyBodyAccelerometerStandardDeviationY`  
 -   `frequencyBodyAccelerometerStandardDeviationZ`
 
 ##### Weighted average of the frequency of body acceleration in X, Y and Z dimensions
 
--   `frequencyBodyAccelerometerMeanFrequencyX`
--   `frequencyBodyAccelerometerMeanFrequencyY`
+-   `frequencyBodyAccelerometerMeanFrequencyX`  
+-   `frequencyBodyAccelerometerMeanFrequencyY`  
 -   `frequencyBodyAccelerometerMeanFrequencyZ`
 
 ##### Mean and standard deviation of body acceleration jerk in X, Y and Z dimensions
 
--   `frequencyBodyAccelerometerJerkMeanX`
--   `frequencyBodyAccelerometerJerkMeanY`
--   `frequencyBodyAccelerometerJerkMeanZ`
--   `frequencyBodyAccelerometerJerkStandardDeviationX`
--   `frequencyBodyAccelerometerJerkStandardDeviationY`
+-   `frequencyBodyAccelerometerJerkMeanX`  
+-   `frequencyBodyAccelerometerJerkMeanY`  
+-   `frequencyBodyAccelerometerJerkMeanZ`  
+-   `frequencyBodyAccelerometerJerkStandardDeviationX`  
+-   `frequencyBodyAccelerometerJerkStandardDeviationY`  
 -   `frequencyBodyAccelerometerJerkStandardDeviationZ`
 
 ##### Weighted average of the frequency of body acceleration jerk in X, Y and Z dimensions
 
--   `frequencyBodyAccelerometerJerkMeanFrequencyX`
--   `frequencyBodyAccelerometerJerkMeanFrequencyY`
+-   `frequencyBodyAccelerometerJerkMeanFrequencyX`  
+-   `frequencyBodyAccelerometerJerkMeanFrequencyY`  
 -   `frequencyBodyAccelerometerJerkMeanFrequencyZ`
 
 ##### Mean and standard deviation of body angular velocity in X, Y and Z dimensions
 
--   `frequencyBodyGyroscopeMeanX`
--   `frequencyBodyGyroscopeMeanY`
--   `frequencyBodyGyroscopeMeanZ`
+-   `frequencyBodyGyroscopeMeanX`  
+-   `frequencyBodyGyroscopeMeanY`  
+-   `frequencyBodyGyroscopeMeanZ`  
 -   `frequencyBodyGyroscopeStandardDeviationX`
--   `frequencyBodyGyroscopeStandardDeviationY`
+-   `frequencyBodyGyroscopeStandardDeviationY`  
 -   `frequencyBodyGyroscopeStandardDeviationZ`
 
 ##### Weighted average of the frequency of body angular velocity in X, Y and Z dimensions
 
--   `frequencyBodyGyroscopeMeanFrequencyX`
--   `frequencyBodyGyroscopeMeanFrequencyY`
+-   `frequencyBodyGyroscopeMeanFrequencyX`  
+-   `frequencyBodyGyroscopeMeanFrequencyY`  
 -   `frequencyBodyGyroscopeMeanFrequencyZ`
 
 ##### Mean, standard deviation, and weighted average of the frequency of body acceleration magnitude
 
--   `frequencyBodyAccelerometerMagnitudeMean`
--   `frequencyBodyAccelerometerMagnitudeStandardDeviation`
+-   `frequencyBodyAccelerometerMagnitudeMean`  
+-   `frequencyBodyAccelerometerMagnitudeStandardDeviation`  
 -   `frequencyBodyAccelerometerMagnitudeMeanFrequency`
 
 ##### Mean, standard deviation, and weighted average of the frequency of body acceleration jerk magnitude
 
--   `frequencyBodyAccelerometerJerkMagnitudeMean`
--   `frequencyBodyAccelerometerJerkMagnitudeStandardDeviation`
+-   `frequencyBodyAccelerometerJerkMagnitudeMean`  
+-   `frequencyBodyAccelerometerJerkMagnitudeStandardDeviation`  
 -   `frequencyBodyAccelerometerJerkMagnitudeMeanFrequency`
 
 ##### Mean, standard deviation, and weighted average of the frequency of body angular velocity magnitude
 
--   `frequencyBodyGyroscopeMagnitudeMean`
--   `frequencyBodyGyroscopeMagnitudeStandardDeviation`
+-   `frequencyBodyGyroscopeMagnitudeMean`  
+-   `frequencyBodyGyroscopeMagnitudeStandardDeviation`  
 -   `frequencyBodyGyroscopeMagnitudeMeanFrequency`
 
 ##### Mean, standard deviation, and weighted average of the frequency of body angular velocity jerk magnitude
 
--   `frequencyBodyGyroscopeJerkMagnitudeMean`
--   `frequencyBodyGyroscopeJerkMagnitudeStandardDeviation`
+-   `frequencyBodyGyroscopeJerkMagnitudeMean`  
+-   `frequencyBodyGyroscopeJerkMagnitudeStandardDeviation`  
 -   `frequencyBodyGyroscopeJerkMagnitudeMeanFrequency`
 
 ### Transformations
@@ -236,4 +236,4 @@ is downloaded and unzipped if it does not exist.
     `tidy_data.csv`.
 
 The tidy dataset was created using R version 3.6.0 (2019-04-26) on MacOS
-vVrsion 10.14.5. `dplyr` package (Version 0.8.1 is required.
+Version 10.14.5. `dplyr` package (Version 0.8.1) is required.
