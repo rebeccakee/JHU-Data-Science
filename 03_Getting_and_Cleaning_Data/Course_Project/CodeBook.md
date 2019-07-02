@@ -81,12 +81,14 @@ class.
 
 ##### Mean and standard deviation of body acceleration jerk in X, Y and Z dimensions
 
-Jerk signals were a derivation of the acceleration in time  
-\* `timeBodyAccelerometerJerkMeanX` \* `timeBodyAccelerometerJerkMeanY`
-\* `timeBodyAccelerometerJerkMeanZ` \*
-`timeBodyAccelerometerJerkStandardDeviationX` \*
-`timeBodyAccelerometerJerkStandardDeviationY` \*
-`timeBodyAccelerometerJerkStandardDeviationZ`
+Jerk signals were a derivation of the acceleration in time
+
+-   `timeBodyAccelerometerJerkMeanX`
+-   `timeBodyAccelerometerJerkMeanY`
+-   `timeBodyAccelerometerJerkMeanZ`
+-   `timeBodyAccelerometerJerkStandardDeviationX`
+-   `timeBodyAccelerometerJerkStandardDeviationY`
+-   `timeBodyAccelerometerJerkStandardDeviationZ`
 
 ##### Mean and standard deviation of body angular velocity in X, Y and Z dimensions
 
@@ -99,43 +101,49 @@ Jerk signals were a derivation of the acceleration in time
 
 ##### Mean and standard deviation of body angular velocity jerk in X, Y and Z dimensions
 
-Jerk signals were a derivation of the angular velocity in time  
-\* `timeBodyGyroscopeJerkMeanX`  
-\* `timeBodyGyroscopeJerkMeanY`  
-\* `timeBodyGyroscopeJerkMeanZ`  
-\* `timeBodyGyroscopeJerkStandardDeviationX`  
-\* `timeBodyGyroscopeJerkStandardDeviationY`  
-\* `timeBodyGyroscopeJerkStandardDeviationZ`
+Jerk signals were a derivation of the angular velocity in time
+
+-   `timeBodyGyroscopeJerkMeanX`  
+-   `timeBodyGyroscopeJerkMeanY`  
+-   `timeBodyGyroscopeJerkMeanZ`  
+-   `timeBodyGyroscopeJerkStandardDeviationX`  
+-   `timeBodyGyroscopeJerkStandardDeviationY`  
+-   `timeBodyGyroscopeJerkStandardDeviationZ`
 
 ##### Mean and standard deviation of body acceleration magnitude
 
-The magnitude was calculated using the Euclidean norm  
-\* `timeBodyAccelerometerMagnitudeMean`  
-\* `timeBodyAccelerometerMagnitudeStandardDeviation`
+The magnitude was calculated using the Euclidean norm
+
+-   `timeBodyAccelerometerMagnitudeMean`  
+-   `timeBodyAccelerometerMagnitudeStandardDeviation`
 
 ##### Mean and standard deviation of gravity acceleration magnitude
 
-The magnitude was calculated using the Euclidean norm  
-\* `timeGravityAccelerometerMagnitudeMean`  
-\* `timeGravityAccelerometerMagnitudeStandardDeviation`
+The magnitude was calculated using the Euclidean norm
+
+-   `timeGravityAccelerometerMagnitudeMean`  
+-   `timeGravityAccelerometerMagnitudeStandardDeviation`
 
 ##### Mean and standard deviation of body acceleration jerk magnitude
 
-The magnitude was calculated using the Euclidean norm  
-\* `timeBodyAccelerometerJerkMagnitudeMean`  
-\* `timeBodyAccelerometerJerkMagnitudeStandardDeviation`
+The magnitude was calculated using the Euclidean norm
+
+-   `timeBodyAccelerometerJerkMagnitudeMean`  
+-   `timeBodyAccelerometerJerkMagnitudeStandardDeviation`
 
 ##### Mean and standard deviation of body angular velocity magnitude
 
-The magnitude was calculated using the Euclidean norm  
-\* `timeBodyGyroscopeMagnitudeMean`  
-\* `timeBodyGyroscopeMagnitudeStandardDeviation`
+The magnitude was calculated using the Euclidean norm
+
+-   `timeBodyGyroscopeMagnitudeMean`  
+-   `timeBodyGyroscopeMagnitudeStandardDeviation`
 
 ##### Mean and standard deviation of body angular velocity jerk magnitude
 
-The magnitude was calculated using the Euclidean norm  
-\* `timeBodyGyroscopeJerkMagnitudeMean`  
-\* `timeBodyGyroscopeJerkMagnitudeStandardDeviation`
+The magnitude was calculated using the Euclidean norm
+
+-   `timeBodyGyroscopeJerkMagnitudeMean`  
+-   `timeBodyGyroscopeJerkMagnitudeStandardDeviation`
 
 #### Frequency domain variables
 
