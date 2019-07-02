@@ -151,7 +151,7 @@ Frequency domain signals were calculated by applying a Fast Fourier
 Transform to the time domain signals. All frequency domain variables are
 of numeric class.
 
-##### Mean and stndard deviation of body acceleration in X, Y and Z dimensions
+##### Mean and standard deviation of body acceleration in X, Y and Z dimensions
 
 -   `frequencyBodyAccelerometerMeanX`  
 -   `frequencyBodyAccelerometerMeanY`  
