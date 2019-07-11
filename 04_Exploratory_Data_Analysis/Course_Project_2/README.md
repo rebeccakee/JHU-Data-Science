@@ -55,6 +55,8 @@ and you may choose to explore whatever categories you think are most
 useful. For example, source “10100101” is known as “Ext Comb /Electric
 Gen /Anthracite Coal /Pulverized Coal”.
 
+### Questions
+
 Each script and plot in this folder answers the following questions
 (files are numbered after the questions):  
 1. Have total emissions from PM2.5 decreased in the United States from
