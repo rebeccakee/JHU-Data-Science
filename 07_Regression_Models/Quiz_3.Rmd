@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Regression Models Quiz 3 
 
-Q1. Consider the `r mtcars` data set. Fit a model with mpg as the outcome that includes number of cylinders as a factor variable and weight as confounder. Give the adjusted estimate for the expected change in mpg comparing 8 cylinders to 4.
+Q1. Consider the mtcars data set. Fit a model with mpg as the outcome that includes number of cylinders as a factor variable and weight as confounder. Give the adjusted estimate for the expected change in mpg comparing 8 cylinders to 4.
 ```{r}
 data(mtcars)
 fit <- lm(mpg ~ factor(cyl) + wt, data = mtcars)
@@ -21,7 +21,7 @@ summary(fit)$coefficients
 The adjusted estimate is -6.071. 
 
 
-Q2. Consider the `r mtcars` data set. Fit a model with mpg as the outcome that includes number of cylinders as a factor variable and weight as a possible confounding variable. Compare the effect of 8 versus 4 cylinders on mpg for the adjusted and unadjusted by weight models. Here, adjusted means including the weight variable as a term in the regression model and unadjusted means the model without weight included. What can be said about the effect comparing 8 and 4 cylinders after looking at models with and without weight included?
+Q2. Consider the mtcars data set. Fit a model with mpg as the outcome that includes number of cylinders as a factor variable and weight as a possible confounding variable. Compare the effect of 8 versus 4 cylinders on mpg for the adjusted and unadjusted by weight models. Here, adjusted means including the weight variable as a term in the regression model and unadjusted means the model without weight included. What can be said about the effect comparing 8 and 4 cylinders after looking at models with and without weight included?
 ```{r}
 # Fit model without adjusting for weight and obtain coefficient comparing 8 and 4 cylinders
 fit2 <- lm(mpg ~ factor(cyl), data = mtcars)
@@ -33,7 +33,7 @@ summary(fit)$coefficient[3]
 ```
 Answer: Holding weight constant, cylinder appears to have less of an impact on mpg than if weight is disregarded.
 
-Q3. Consider the `r mtcars` data set. Fit a model with mpg as the outcome that considers number of cylinders as a factor variable and weight as confounder. Now fit a second model with mpg as the outcome model that considers the interaction between number of cylinders (as a factor variable) and weight. Give the P-value for the likelihood ratio test comparing the two models and suggest a model using 0.05 as a type I error rate significance benchmark.
+Q3. Consider the mtcars data set. Fit a model with mpg as the outcome that considers number of cylinders as a factor variable and weight as confounder. Now fit a second model with mpg as the outcome model that considers the interaction between number of cylinders (as a factor variable) and weight. Give the P-value for the likelihood ratio test comparing the two models and suggest a model using 0.05 as a type I error rate significance benchmark.
 ```{r}
 # Fit adjusted model, no interation 
 fit <- lm(mpg ~ factor(cyl) + wt, data = mtcars)
@@ -50,7 +50,7 @@ anova(fit, fit3)
 ```
 Answer: The P-value is larger than 0.05. So, according to our criterion, we would fail to reject, which suggests that the interaction terms may not be necessary.
 
-Q4.Consider the `r mtcars` data set. Fit a model with mpg as the outcome that includes number of cylinders as a factor variable and weight inlcuded in the model as 
+Q4.Consider the mtcars data set. Fit a model with mpg as the outcome that includes number of cylinders as a factor variable and weight inlcuded in the model as 
 ```{r}
 fit4 <- lm(mpg ~ I(wt * 0.5) + factor(cyl), data = mtcars)
 summary(fit4)
