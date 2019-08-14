@@ -1,0 +1,120 @@
+---
+author: "Rebecca Kee"
+date: "8/13/2019"
+output: 
+    pdf_document: default
+    html_document:
+        keep_md: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Regression Models Course Project
+
+## Executive Summary
+This is a  project for the Regression Models course, part of the John Hopkins University Data Science Specialization on Coursera. Using the `mtcars` dataset, this project answers the following questions:  
+* Is an automatic or manual transmission better for MPG?  
+* Quantify the MPG difference between automatic and manual transmissions.  
+
+## Data Description
+The mtcars data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). It is stored as a data frame with 32 observations on 11 (numeric) variables.  
+[, 1]	mpg	Miles/(US) gallon  
+[, 2]	cyl	Number of cylinders  
+[, 3]	disp	Displacement (cu.in.)  
+[, 4]	hp	Gross horsepower  
+[, 5]	drat	Rear axle ratio  
+[, 6]	wt	Weight (1000 lbs)  
+[, 7]	qsec	1/4 mile time  
+[, 8]	vs	Engine (0 = V-shaped, 1 = straight)  
+[, 9]	am	Transmission (0 = automatic, 1 = manual)  
+[,10]	gear	Number of forward gears  
+[,11]	carb	Number of carburetors  
+
+## Data Processing
+```{r}
+# Load data and packages
+library(ggplot2)
+library(MASS)
+data(mtcars)
+
+# Convert categorical variables to factors 
+mtcars$cyl <- factor(mtcars$cyl)
+mtcars$vs <- factor(mtcars$vs)
+mtcars$am <- factor(mtcars$am, labels=c('Automatic','Manual'))
+mtcars$gear <- factor(mtcars$gear)
+mtcars$carb <- factor(mtcars$carb)
+
+# Examine data
+str(mtcars)
+```
+
+## Exploratory Data Analysis
+
+First, let's briefly examine any relationships between the variables
+```{r}
+pairs(mpg ~ ., data = mtcars)
+```
+
+Let's also get a sense of the mean and spread of MPG by transmission type
+```{r}
+ggplot(mtcars, aes(x = factor(am), y = mpg)) + 
+  geom_boxplot(aes(fill = factor(am)), show.legend = FALSE) +
+  labs(x = "Transmission type", 
+       y = "Miles per gallon (mpg)", 
+       title = "Miles per gallon by transmission type"
+       ) +
+  scale_x_discrete(labels = c("Automatic","Manual")) +
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+On first glance, it looks like manual transmission tends to have higher fuel efficiency (mpg). We will formally test this hypothesis in a regression analysis. 
+
+## Regression Analysis
+
+**Model fitting and selection**
+
+We first fit a simple linear regression model to test the relationship between transmission type and mpg.
+```{r}
+linearfit <- lm(mpg ~ am, data = mtcars)
+summary(linearfit)
+```
+The R-squared estimate shows that only about 36% of the variation in mpg is explained by the model, indicating that we need to control for other variables in the model. 
+
+Next, we will fit a multivariable regression model with all variables of the dataset included.
+```{r}
+multifit <- lm(mpg ~ ., data = mtcars)
+```
+
+Then, we perform a stepwise variable selection using the `stepAIC()` function to determine which variables should be included in the final model. The smaller the AIC value, the better the model fit. See [here](https://en.wikipedia.org/wiki/Akaike_information_criterion) for more information on the AIC test. 
+```{r, results = 'hide'}
+bestfit <- stepAIC(multifit, direction = "both")
+```
+```{r}
+summary(bestfit)
+```
+We see that the final model consists of `cyl`, `hp`, and `wt` as covariates, with `mpg` as outcome and `am` as predictor. In addition, about 87% of variance in mpg is now explained by the model. 
+
+**Inference**
+
+1. The difference in the average mpg between auto and manual transmission is about 1.81, where manual has 1.81 greater mpg than auto transmission.  
+2. However, the p-value for manual transmission versus auto transmission (reference) is about 0.206, greater than the standard threshold of 0.05. Hence, we cannot conclusively say that manual transmission results in better mpg, compared to auto transmission. 
+
+## Conclusions
+1. Manual transmission has 1.81 more mpg, on average, than auto transmission.  
+2. However, this difference is not statistically significant. We cannot conclude that either type of transmission has a better mpg than the other.  
+
+## Appendix - Diagnostics
+```{r}
+# Plot residuals
+par(mfrow = c(2, 2))
+plot(bestfit)
+```
+```{r}
+# Find 5 most influential points on slope coefficients 
+influence <- dfbetas(bestfit)
+head(sort(influence[,6], decreasing = TRUE), 5)
+```
+
