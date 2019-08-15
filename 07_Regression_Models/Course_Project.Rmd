@@ -19,7 +19,7 @@ This is a  project for the Regression Models course, part of the John Hopkins Un
 * Quantify the MPG difference between automatic and manual transmissions.  
 
 ## Data Description
-The mtcars data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). It is stored as a data frame with 32 observations on 11 (numeric) variables.  
+The mtcars data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). It is stored as a data frame with 32 observations on 11 (numeric) variables. 
 [, 1]	mpg	Miles/(US) gallon  
 [, 2]	cyl	Number of cylinders  
 [, 3]	disp	Displacement (cu.in.)  
@@ -83,28 +83,32 @@ summary(linearfit)
 ```
 The R-squared estimate shows that only about 36% of the variation in mpg is explained by the model, indicating that we need to control for other variables in the model. 
 
-Next, we will fit a multivariable regression model with all variables of the dataset included.
-```{r}
-multifit <- lm(mpg ~ ., data = mtcars)
-```
-
-Then, we perform a stepwise variable selection using the `stepAIC()` function to determine which variables should be included in the final model. The smaller the AIC value, the better the model fit. See [here](https://en.wikipedia.org/wiki/Akaike_information_criterion) for more information on the AIC test. 
+Next, we will fit a multivariable regression model with all variables included, then perform a stepwise variable selection using the `stepAIC()` function to determine which variables to include in the final model, with smaller [AIC](https://en.wikipedia.org/wiki/Akaike_information_criterion) values indicating better model fit.
 ```{r, results = 'hide'}
+# Fit model
+multifit <- lm(mpg ~ ., data = mtcars)
+# Select model
 bestfit <- stepAIC(multifit, direction = "both")
 ```
 ```{r}
 summary(bestfit)
 ```
-We see that the final model consists of `cyl`, `hp`, and `wt` as covariates, with `mpg` as outcome and `am` as predictor. In addition, about 87% of variance in mpg is now explained by the model. 
+
+We see that the final model consists of `cyl`, `hp`, and `wt` as covariates, with `mpg` as outcome and `am` as predictor. In addition, about 87% of variance in mpg is now explained by the model, indicating better model fit. 
 
 **Inference**
 
-1. The difference in the average mpg between auto and manual transmission is about 1.81, where manual has 1.81 greater mpg than auto transmission.  
-2. However, the p-value for manual transmission versus auto transmission (reference) is about 0.206, greater than the standard threshold of 0.05. Hence, we cannot conclusively say that manual transmission results in better mpg, compared to auto transmission. 
+1. The expected mpg with manual transmission is about 1.81 greater than auto transmission.  
+2. However, the p-value for manual versus auto transmission (reference) is about 0.206, greater than the standard threshold of 0.05. Hence, we cannot conclusively say that manual transmission results in better mpg, compared to auto transmission. 
+
+We can confirm this with by estimating the confidence interval.
+```{r}
+confint(bestfit, "amManual", level = 0.95)
+```
+The confidence interval overlaps with 0, indicating non-signficance. 
 
 ## Conclusions
-1. Manual transmission has 1.81 more mpg, on average, than auto transmission.  
-2. However, this difference is not statistically significant. We cannot conclude that either type of transmission has a better mpg than the other.  
+The difference in mpg between auto and manual transmission is not statistically significant. We cannot conclude that either type of transmission has better mpg than the other.  
 
 ## Appendix - Diagnostics
 ```{r}
