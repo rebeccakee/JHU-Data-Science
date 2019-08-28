@@ -1,0 +1,22 @@
+---
+title: "Developing Data Products: Week 2 Assignment"
+author: "Rebecca Kee"
+date: "8/27/2019"
+output: html_document
+---
+
+## Introduction
+This is the Week 2 Assignment of the Developing Data Products course on Coursera. In this assignment, we will create an interactive map using `leaflet`.
+
+## Map of some popular tourist attractions in Singapore
+```{r}
+library(leaflet)
+coords <- data.frame(lat = c(1.2834, 1.2816, 1.2540, 1.3138, 1.2868, 1.2863),
+                     lng = c(103.8608, 103.8636, 103.8238, 103.8159, 103.8545, 103.8593))
+popup <- c("Marina Bay Sands", "Gardens by the Bay", "Universal Studios Singapore", "Singapore Botanic Gardens", "Merlion", "ArtScience Museum")                  
+
+coords %>% 
+    leaflet() %>%
+    addTiles() %>%
+    addMarkers(popup = popup)
+```
