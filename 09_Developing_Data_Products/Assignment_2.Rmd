@@ -1,0 +1,26 @@
+---
+title: "Developing Data Products: Week 3 Assignment"
+author: "Rebecca Kee"
+date: "8/28/2019"
+output: ioslides_presentation
+---
+
+## Introduction
+This is the Week 3 Assignment of the Developing Data Products course on Coursera. In this assignment, we will create an interactive plot using `plotly`, using the `sleep` data. 
+
+## Code for creating plot
+```{r, warning=FALSE}
+suppressMessages(library(plotly))
+data(sleep)
+p <- plot_ly(sleep, x = ~group, 
+                  y = ~extra, 
+                  type = "box", 
+                  color = ~group) %>% 
+    layout(xaxis = list(title = "Type of drug received"), 
+           yaxis = list(title = "Hours of sleep"),
+           showlegend = FALSE)  %>%
+    add_markers()
+```
+
+## Effect of drug type on hours of sleep
+`r p`
