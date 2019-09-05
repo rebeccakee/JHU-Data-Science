@@ -3,7 +3,6 @@ Developing Data Products Course Project
 ========================================================
 author: Rebecca Kee
 date: 9/4/2019
-font-family: Helvetica
 
 Introduction
 ========================================================
