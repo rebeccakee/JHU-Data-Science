@@ -3,7 +3,7 @@ Developing Data Products Course Project
 ========================================================
 author: Rebecca Kee
 date: 9/4/2019
-autosize: true
+font-family: Helvetica
 
 Introduction
 ========================================================
@@ -17,9 +17,11 @@ About the app
 
 Using the app
 ========================================================
-- Access the app [here](https://rebecca-kee.shinyapps.io/Developing_Data_Products_Course_Project/).
 - Customize your diamond by selecting the cut, color, clarity, and carat. 
 - The general linear model predicts the price of the diamond based on selected inputs, and displays it at the bottom of the main panel. 
+```{r, eval=FALSE}
+predict(model.fit, newdata = data.frame(carat = input$carat))
+```
 - The app also plots a regression of the diamonds data subset, and displays the user's customized diamond in red on the plot. 
 
 Try it out!
