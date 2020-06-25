@@ -1,2 +1,2 @@
-# JHU Data Science
-This repo contains R scripts and output files produced for quizzes, programming assignments, and course projects in the John Hopkins University (JHU) Data Science Specialization on Coursera. This repo is organized by assigning individual folders for each course in the specialization. The folder name indicates the course number and title. Each folder contains subfolders for the quizzes and programming assignments or course projects. There are a total of 10 courses in the specialization.
+# Data Science Specialization
+Source code and output files for quizzes, assignments, and projects completed as part of the John Hopkins University (JHU) Data Science Specialization on Coursera. 
